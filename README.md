@@ -1,6 +1,6 @@
 # Employee list web-page
 
-**Live version available here:** https://mkashtodolist.herokuapp.com/
+**Live version available here:** https://mikekash.github.io/employee-list/
 
 **IMPORTANT!**
 
