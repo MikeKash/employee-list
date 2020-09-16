@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" id="toggle-btn">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+        <a class="navbar-item">
+          Appointments
+        </a>
+        <a class="navbar-item">
+          Clients
+        </a>
+        <a class="navbar-item">
+          Employees
+        </a>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="title">Employees</h1>
+      <article id="employees">
+        <!-- Render Content Here -->
+      </article>
+
+      <!-- Alert new employee added -->
+      <div class="notification is-primary hide-form" id="alert">
+        <h4 class="title is-4">New Employee Succesfully Added</h4>
+      </div>
+      <div class="hero-body hide-form" id="new-employee">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-10-tablet is-6desktop is-6-widescreen">
+              <form class="box new-employee-form">
+                <div class="level-right" id="close-form-btn">
+                  <a class="delete is-medium"></a>
+                </div>
+                <div class="level">
+                  <h1 class="title is-3 level-item">Add new Employee</h1>
+                </div>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Name</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded has-icons-left has-icons-right">
+                        <input class="input is-success" id='first-name' type="text" placeholder="First Name" required>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="field">
+                      <p class="control is-expanded has-icons-left has-icons-right">
+                        <input class="input is-success" id='last-name' type="text" placeholder="Last Name" required>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Job Title</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field is-narrow">
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select id='job-title'>
+                            <option>General Manager</option>
+                            <option>Senior Stylist</option>
+                            <option>Stylist</option>
+                            <option>Trainee</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Photo</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="file is-info">
+                        <label class="file-label">
+                          <input class="file-input" type="file" name="resume" id="profile-photo">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Choose Photo…
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field is-horizontal">
+                  <div class="field-label">
+                    <!-- Left empty for spacing -->
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control">
+                        <button type="submit" class="button is-info" id="submit-employee-btn">
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="buttons is-centered">
+        <p class="control" id="pagination">
+        </p>
+      </div>
+      <div class="level-right">
+        <button class="button is-info" id="new-employee-btn">+ Add Employee</button>
+      </div>
+    </div>
+  </section>
+  <script src="./index.js"></script>
+</body>
+
+</html>

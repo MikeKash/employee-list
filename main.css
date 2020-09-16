@@ -1,0 +1,47 @@
+.list-image {
+    max-height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;  
+  }
+
+  /* General Styles */
+  section {
+    padding: 1rem !important;
+  }
+  
+  .button {
+    margin-top: 2em;
+  }
+
+  #new-employee{
+    padding: 1rem;
+  }
+
+
+  /* to hide elements on the page */
+  #new-employee.hide-form,
+  #new-employee-btn.hide-form,
+  #pagination.hide-form,
+  #alert.hide-form,
+  #employees.hide-form,
+  #title.hide-form
+  {
+    display: none;   
+  } 
+
+  /* alert message */
+  #alert {    
+    text-align: center;
+    padding: 3rem 1rem;
+    margin: 0 auto;
+    width: 50%;    
+  }
+
+
+  /* to show mwenu in the mobile view */
+  .navbar-menu.show-menu {
+    display: block;
+  }
+   
+    
