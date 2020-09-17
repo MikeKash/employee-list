@@ -38,7 +38,7 @@ const pagination = (list, wrapper, rows_per_page) => {
       // console.log(btn.id);
       btn.addEventListener('click', () => {
         current_page = btn.id;
-        console.log(btn.id);
+        // console.log(btn.id);
         displayEmployees(list, rows_per_page, current_page);
       })
     })
