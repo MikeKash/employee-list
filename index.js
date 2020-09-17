@@ -11,7 +11,7 @@ let current_page = 1;
 
 // to get data from API and call functions to display info on the page as well as create buttons on the fly
 async function showEmployees() {
-  const response = await fetch(url);
+  const response = await fetch(url, { mode: 'no-cors'});
   const employees = await response.json();
   displayEmployees(employees, rows, current_page);
   pagination(employees, paginationSection, rows);
