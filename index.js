@@ -9,14 +9,122 @@ const url = 'https://emplistapi-258220.appspot.com/';
 let rows = 3;
 let current_page = 1;
 
+let employeeList = [{
+    "name": {
+      "first": "Clara",
+      "last": "Wade"
+    },
+    "jobTitle": "General Manager",
+    "photoURL": "https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  }, {
+    "name": {
+      "first": "Stafford",
+      "last": "Fleming"
+    },
+    "photoURL": null,
+    "jobTitle": null
+  }, {
+    "name": {
+      "first": "Sawyer",
+      "last": "Freeman"
+    },
+    "jobTitle": "Stylist",
+    "photoURL": "https://images.pexels.com/photos/374044/pexels-photo-374044.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }, {
+    "name": {
+      "first": "Susanna",
+      "last": "Orr"
+    },
+    "jobTitle": "Stylist",
+    "photoURL": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  }, {
+    "name": {
+      "first": "Stephanie",
+      "last": "Mills"
+    },
+    "jobTitle": "Receptionist",
+    "photoURL": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }, {
+    "name": {
+      "first": "Silvia",
+      "last": "Foley"
+    },
+    "jobTitle": "Esthetician",
+    "photoURL": "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }, {
+    "name": {
+      "first": "Hester",
+      "last": "Hobbs"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  },
+  {
+    "name": {
+      "first": "Sosa",
+      "last": "Carpenter"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  }, {
+    "name": {
+      "first": "Cooley",
+      "last": "Duncan"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  }, {
+    "name": {
+      "first": "Spence",
+      "last": "Woodward"
+    },
+    "jobTitle": "Trainee",
+    "photoURL": "https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }, {
+    "name": {
+      "first": "Deana",
+      "last": "Oneil"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  }, {
+    "name": {
+      "first": "Hall",
+      "last": "Boone"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  }, {
+    "name": {
+      "first": "Ruby",
+      "last": "Klein"
+    },
+    "photoURL": null,
+    "jobTitle": "Stylist"
+  }, {
+    "name": {
+      "first": "Shane",
+      "last": "Flores"
+    },
+    "jobTitle": "Senior Stylist",
+    "photoURL": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }, {
+    "name": {
+      "first": "Karen",
+      "last": "Hoover"
+    },
+    "jobTitle": "Stylist",
+    "photoURL": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }
+]
+
 // to get data from API and call functions to display info on the page as well as create buttons on the fly
-async function showEmployees() {
-  const response = await fetch(url);
-  const employees = await response.json();
-  displayEmployees(employees, rows, current_page);
-  pagination(employees, paginationSection, rows);
+function showEmployees() {
+  // const response = await fetch(url);
+  // const employees = await response.json();
+  displayEmployees(employeeList, rows, current_page);
+  pagination(employeeList, paginationSection, rows);
 };
-showEmployees();
 
 
 // PAGINATION FUNCTION
@@ -35,10 +143,8 @@ const pagination = (list, wrapper, rows_per_page) => {
     let paginationBtn = document.querySelectorAll('#pagination .button');
 
     paginationBtn.forEach((btn) => {
-      // console.log(btn.id);
       btn.addEventListener('click', () => {
         current_page = btn.id;
-        // console.log(btn.id);
         displayEmployees(list, rows_per_page, current_page);
       })
     })
@@ -46,7 +152,7 @@ const pagination = (list, wrapper, rows_per_page) => {
 }
 
 // function to display info on the page
-const  displayEmployees = (list, rows_per_page, page) => {
+const displayEmployees = (list, rows_per_page, page) => {
   page--;
 
   let start = rows_per_page * page;
@@ -54,12 +160,12 @@ const  displayEmployees = (list, rows_per_page, page) => {
 
   let displayEmployeeList = list.map(function (employee) {
     employeePhoto = employee.photoURL;
-    if (employeePhoto === null) {
+    if (!employeePhoto) {
       employeePhoto = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
     }
     employeeName = employee.name.first + " " + employee.name.last;
     employeeJobTitle = employee.jobTitle;
-    if (employeeJobTitle === null) {
+    if (!employeeJobTitle) {
       employeeJobTitle = '';
     }
     return `<article class="media box">
@@ -93,9 +199,13 @@ const  displayEmployees = (list, rows_per_page, page) => {
 const firstName = document.getElementById('first-name');
 const lastName = document.getElementById('last-name');
 const jobTitle = document.getElementById('job-title');
-const profilePhoto = document.getElementById('profile-photo');
-const title = document.getElementById('title');
 
+
+// const profilePhoto = document.getElementById('profile-photo');
+const profilePhoto = "";
+
+
+const title = document.getElementById('title');
 const newEmployeeBtn = document.getElementById('new-employee-btn');
 const newEmployee = document.getElementById('new-employee');
 const submitEmployeeBtn = document.getElementById('submit-employee-btn');
@@ -135,7 +245,7 @@ newEmployeeForm.addEventListener('submit', (e) => {
     newEmployeeBtn.classList.remove('hide-form');
     paginationSection.classList.remove('hide-form');
     title.classList.remove('hide-form');
-    // to reset vlues in the form after submitting
+    // to reset va after submitting
     firstName.value = '';
     lastName.value = '';
   }, 2000);
@@ -149,14 +259,22 @@ toggleBtn.addEventListener('click', () => {
 
 // GET NEW EMPLOYEE INFO FUNCTIONS
 const newEmployeeData = () => {
-  let employee = [{
+
+  profilePhoto.replace( /C:\\fakepath\\/i, "" );
+
+
+
+  let employee = {
     "name": {
       "first": firstName.value,
       "last": lastName.value,
     },
     "jobTitle": jobTitle.value,
-    "photoURL": profilePhoto.value,
-  }, ]
+    "photoURL": profilePhoto
+  };
   console.log(employee);
-  return employee;
+  employeeList.unshift(employee);
+  showEmployees();
 }
+
+showEmployees();
