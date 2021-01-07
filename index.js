@@ -6,7 +6,7 @@ const url = 'https://emplistapi-258220.appspot.com/';
 // data for pagination. ROWS can be changed to set how many rows needs to be dsiaplyed on the page.
 // qty of nuttons will updated automatically
 
-let rows = 3;
+let rows = 4;
 let current_page = 1;
 
 let employeeList = [{
